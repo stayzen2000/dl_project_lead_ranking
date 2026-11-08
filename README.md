@@ -5,7 +5,7 @@
 > time-based split.
 
 NJIT DS 677 Deep Learning · Industry Application track
-Group: Irteza Alif (`stayzen2000`) · `techy-Nik`
+Group: Irteza Alif (`stayzen2000`) · Nikunj Nileshkumar Kantaria (`techy-Nik`)
 
 ## The problem
 
@@ -68,7 +68,7 @@ sales team acts on. Results are reported as mean and spread across seeds.
 | Member | Owns |
 |---|---|
 | Irteza Alif | Data pipeline and TabReD split, baselines and replication anchor, TabPFN, transductive transformer |
-| `techy-Nik` | MLP and FT-Transformer, Wulver batch setup for the sweep, seed and variance analysis |
+| Nikunj Nileshkumar Kantaria | MLP and FT-Transformer, Wulver batch setup for the sweep, seed and variance analysis |
 | Both | Shared metrics code, report, demo |
 
 ## Repository layout
