@@ -1,8 +1,10 @@
 # Data never goes in this repo (Kaggle competition rules)
 data/
 *.csv
+!experiments/results/**/*.csv
 *.parquet
 *.zip
+*.mat
 
 # Python
 __pycache__/
@@ -10,13 +12,23 @@ __pycache__/
 .venv/
 venv/
 .ipynb_checkpoints/
+.pytest_cache/
 
 # Secrets
 .env
+kaggle.json
 
 # Experiment tracking and model files
 mlruns/
 *.db
 *.pt
+*.pth
+*.ckpt
 *.pkl
 *.joblib
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

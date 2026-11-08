@@ -55,13 +55,15 @@ CNNs and RNNs are left out on purpose: table columns have no spatial order and a
 |---|---|
 | A. Model and claim | TabPFN against tuned XGBoost at small training sizes (claim above) |
 | B. Baseline | Logistic regression and tuned XGBoost, each given a fair tuning budget |
-| C. Replication anchor | Reproduce TabReD's published Homesite ROC AUC: XGBoost 0.9601, MLP 0.9500, FT-Transformer 0.9622 |
+| C. Replication anchor | Reproduce TabReD's published Homesite ROC AUC: XGBoost 0.9601, MLP 0.9500, FT-Transformer 0.9622 (Table 3, averaged over 15 seeds; tuning spaces in [`paper/exp/<model>/homesite-insurance/`](https://github.com/yandex-research/tabred/tree/main/paper/exp)) |
 | D. Perturbation study | Data-scale sweep: 500 / 2,000 / 10,000 / 50,000 training quotes, 3 seeds each, run as Wulver batch jobs |
 | E. Analysis and outlook | Where the claim holds, the training size at which XGBoost catches up, and where each model breaks |
 
 **Metrics:** top-10% buyer capture (primary), ROC AUC, log-loss. Capture is primary because models on
 Homesite all score near 0.95–0.96 ROC AUC, so AUC barely separates them, while capture is the number a
-sales team acts on. Results are reported as mean and spread across seeds.
+sales team acts on. With a 19% conversion rate the best possible top-10% capture is about 0.53, so we
+also report capture as a fraction of that ceiling ([`src/leadrank/metrics.py`](src/leadrank/metrics.py)).
+Results are reported as mean and spread across seeds.
 
 ## Work split
 
@@ -84,7 +86,16 @@ demo/                 # self-contained demo notebook
 
 ## How to run
 
-Setup and run instructions arrive with the code in Milestone 3.
+We use [uv](https://docs.astral.sh/uv/) so laptops and Wulver run the same locked package versions:
+
+```bash
+uv sync    # creates .venv from uv.lock (CPU PyTorch on Windows, CUDA PyTorch on Linux)
+```
+
+**Wulver.** The course allocation runs GPU jobs only on 10 GB A100 slices (`course_gpu`, one per
+job). Setup, accounts and job scripts: [`experiments/wulver/README.md`](experiments/wulver/README.md).
+
+Training and evaluation commands arrive with the code in Milestone 3.
 
 ## References
 

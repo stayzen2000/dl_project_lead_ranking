@@ -1,0 +1,37 @@
+[project]
+name = "leadrank"
+version = "0.1.0"
+description = "Ranking insurance quotes by conversion likelihood when labels are scarce (DS 677 course project)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "scikit-learn",
+    "xgboost",
+    "torch",
+    "rtdl-revisiting-models",
+    "tabpfn",
+    "optuna",
+    "matplotlib",
+    "pyyaml",
+    "tqdm",
+]
+
+[dependency-groups]
+dev = ["ipykernel", "pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# CPU-only PyTorch on Windows laptops (no NVIDIA GPU); Linux (Wulver) gets the
+# default PyPI wheel, which bundles CUDA.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'win32'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

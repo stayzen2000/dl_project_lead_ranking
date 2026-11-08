@@ -1,0 +1,4 @@
+* text=auto
+# Wulver runs these with bash; CRLF line endings break them
+*.sh text eol=lf
+*.sbatch text eol=lf
