@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name=env_check
 #SBATCH --partition=course_gpu
 #SBATCH --qos=course

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name=sweep
 #SBATCH --partition=course_gpu
 #SBATCH --qos=course
